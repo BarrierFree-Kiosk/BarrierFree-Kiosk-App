@@ -1,0 +1,60 @@
+﻿<Window x:Class="KioskProject.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Barrier-Free Kiosk" Height="1080" Width="1920"
+        Background="#F4F4F4" WindowState="Maximized">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="20"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="#FFD700"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="10"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ControlButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="250"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#333333">
+            <TextBlock Text="원하시는 메뉴를 선택해 주세요" Foreground="White" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+        <Viewbox x:Name="MainViewbox" Grid.Row="1" Stretch="Uniform">
+            <UniformGrid Columns="3" Margin="50">
+                <Button Content="아메리카노" GotFocus="Button_GotFocus"/>
+                <Button Content="카페라떼" GotFocus="Button_GotFocus"/>
+                <Button Content="에스프레소" GotFocus="Button_GotFocus"/>
+                <Button Content="카페모카" GotFocus="Button_GotFocus"/>
+                <Button Content="카푸치노" GotFocus="Button_GotFocus"/>
+                <Button Content="바닐라라떼" GotFocus="Button_GotFocus"/>
+            </UniformGrid>
+        </Viewbox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Background="#EEEEEE">
+            <Button Content="화면 확대 (+)" Click="ZoomIn_Click" Style="{StaticResource ControlButtonStyle}"/>
+            <Button Content="화면 축소 (-)" Click="ZoomOut_Click" Style="{StaticResource ControlButtonStyle}"/>
+            <Button Content="고대비 모드" Click="HighContrast_Click" Style="{StaticResource ControlButtonStyle}" Background="Black" Foreground="Yellow"/>
+        </StackPanel>
+    </Grid>
+</Window>

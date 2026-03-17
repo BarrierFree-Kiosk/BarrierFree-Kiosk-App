@@ -1,0 +1,19 @@
+﻿<Application x:Class="BarrierFree_Kiosk.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BarrierFree_Kiosk"
+             StartupUri="MainViews/TestWindow.xaml">
+                        <!-- 시작 화면을 바꾸고 싶다면 "속한 폴더명/시작하고자 하는 xaml 파일 이름.xaml"로 바꿔주세요.
+                            예) "MainViews/TestWindow.xaml"
+                                "WorkSpace/Jungmin/Jungmin.xaml"
+                                "WorkSpace/Minsoo/Minsoo.xaml"
+                                "WorkSpace/Sua/Sua.xaml"
+                                "WorkSpace/Subin/Subin.xaml"        -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
