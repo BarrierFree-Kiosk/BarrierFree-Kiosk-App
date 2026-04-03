@@ -1,0 +1,163 @@
+﻿<Page x:Class="BarrierFree_Kiosk.WorkSpace.Jungmin.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BarrierFree_Kiosk.WorkSpace.Jungmin"
+      mc:Ignorable="d" 
+      d:DesignHeight="1920" d:DesignWidth="1080"
+      Title="Page2">
+
+    <!--화면의 수직 레이아웃 비율 고정-->
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
+
+        <MediaElement x:Name="MainVideo" 
+                      Grid.Row="0" 
+                      Source="\Resources\Images\NIKKE2nd_15s.mp4" 
+                      LoadedBehavior="Play" 
+                      UnloadedBehavior="Manual" 
+                      MediaEnded="MediaElement_MediaEnded" 
+                      Stretch="UniformToFill" />
+
+        <!--실제 사용자가 터치하는 하단 전체 영역-->
+        <Grid Grid.Row="1">
+            <Image Source="\Resources\Images\ko_kr\main\sub_bg_03.png" 
+                   Stretch="Fill" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7.7*" />
+                    <ColumnDefinition Width="2.4*" />
+                    <ColumnDefinition Width="0.3*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="8*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="1">
+                            <Grid x:Name="My_List_Layer">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3.3*" />
+                                    <RowDefinition Height="1.3*" />
+                                    <RowDefinition Height="5.2*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+                                    <Button x:Name="BtnCard_10" Grid.Row="0" Background="Transparent" BorderThickness="0" Margin="0" Click="BtnCardSelect_Click">
+                                        <Image Source="\Resources\Images\PhotoCard\10.bmp" Stretch="Uniform" MaxHeight="150"/>
+                                    </Button>
+                                    <Grid Grid.Row="1" HorizontalAlignment="Center">
+                                        <Image Source="\Resources\Images\ko_kr\main\imgCardType_01.png" Stretch="Uniform" Height="28" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                            <Grid x:Name="Preview_Layer">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="0.95*" />
+                                    <RowDefinition Height="1.17*" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.9*" />
+                                        <ColumnDefinition Width="2.6*" />
+                                        <ColumnDefinition Width="2.23*" />
+                                        <ColumnDefinition Width="0*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="1" Source="\Resources\Images\PhotoCard\10.bmp" Stretch="Uniform" />
+                                    <Image Grid.Column="2" Source="\Resources\Images\PhotoCard\poster_10.bmp" Stretch="Uniform" />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid x:Name="Cart_Layer">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7.8*" />
+                            <RowDefinition Height="1.5*" />
+                            <RowDefinition Height="0.7*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="9.7*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="30"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="35"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="28"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Image Grid.Row="0" Source="\Resources\Images\ko_kr\main\imgCardType_01.png" Stretch="Uniform" HorizontalAlignment="Left" />
+                                            <Image Grid.Row="1" Source="\Resources\Images\PhotoCard\10.bmp" Stretch="Fill" />
+                                        </Grid>
+                                        <Button Grid.Column="1" VerticalAlignment="Bottom" Background="Transparent" BorderThickness="0">
+                                            <Image Source="\Resources\Images\ko_kr\main\btn_cart_del.png" Width="30" Height="30"/>
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.7*" />
+                        <RowDefinition Height="0.7*" />
+                        <RowDefinition Height="0.5*" />
+                    </Grid.RowDefinitions>
+
+                    <!--담기/결제 버튼 및 금액 텍스트 블록-->
+                    <Button x:Name="BtnCart" Grid.Row="1" Click="BtnCart_Click" Background="Transparent" BorderThickness="0" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <Image Source="\Resources\Images\ko_kr\main\btn_cart.png" Stretch="Fill" />
+                    </Button>
+
+                    <!--TxtTotalAmount.Text 값 업데이트 필요-->
+                    <Grid Grid.Row="2">
+                        <TextBlock x:Name="TxtTotalAmount" 
+                                   Text="4,000" 
+                                   FontSize="36" 
+                                   FontWeight="Bold" 
+                                   Foreground="Black" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"/>
+                    </Grid>
+
+                    <Button x:Name="BtnPayment" Grid.Row="3" Click="BtnPayment_Click" Background="Transparent" BorderThickness="0" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                        <Image Source="\Resources\Images\ko_kr\main\btn_payment.png" Stretch="Fill" />
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
