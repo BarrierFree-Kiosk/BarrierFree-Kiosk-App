@@ -15,6 +15,7 @@ namespace BarrierFree_Kiosk.Navigation
         {
             [KioskPageId.Home] = static () => new HomeView(),
             [KioskPageId.Minsoo] = static () => new MinsooPage(),
+            [KioskPageId.Menu] = static () => new MenuView(),
         };
 
         public static Page Create(KioskPageId id)

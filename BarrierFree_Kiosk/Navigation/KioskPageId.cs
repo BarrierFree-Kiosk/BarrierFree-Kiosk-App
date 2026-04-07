@@ -10,5 +10,6 @@ namespace BarrierFree_Kiosk.Navigation
         Home,
         /// <summary>WorkSpace/Minsoo/Minsoo.xaml (<see cref="MinsooPage"/>)</summary>
         Minsoo,
+        Menu,
     }
 }

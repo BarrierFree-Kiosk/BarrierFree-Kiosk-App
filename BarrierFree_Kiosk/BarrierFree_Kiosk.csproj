@@ -12,4 +12,19 @@
     <PackageReference Include="System.Speech" Version="10.0.5" />
   </ItemGroup>
 
+  <!-- Resources를 실행 폴더로 복사 (파일 경로 로드용) -->
+  <ItemGroup>
+    <Content Include="Resources\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!--
+    WorkSpace는 팀원별 임시 작업공간이므로 빌드 대상에서 제외합니다.
+    (파일은 유지하되, MainViews 쪽으로 복사한 화면만 실제 앱에서 사용)
+  -->
+  <ItemGroup>
+    <Page Remove="WorkSpace\Jungmin\**\*.xaml" />
+    <Compile Remove="WorkSpace\Jungmin\**\*.xaml.cs" />
+    <Compile Remove="WorkSpace\Jungmin\**\*.cs" />
+  </ItemGroup>
+
 </Project>

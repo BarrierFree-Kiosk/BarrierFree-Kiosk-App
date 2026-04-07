@@ -11,19 +11,25 @@
       시작 창으로 쓰려면 App.xaml의 StartupUri를 MainViews/NavigationHostWindow.xaml 로 바꾸세요.
     -->
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <!--
+          Host에서만 비율 보정:
+          내부 Page(1080x1920 기준)를 창 전체에 Uniform 스케일링합니다.
+        -->
+        <Viewbox Stretch="Uniform" StretchDirection="Both">
+            <Frame x:Name="RootFrame"
+                   NavigationUIVisibility="Hidden"/>
+        </Viewbox>
 
-        <Frame x:Name="RootFrame"
-               Grid.Row="0"
-               Margin="8"
-               NavigationUIVisibility="Hidden"/>
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="8">
-            <controls:NavigateButton Content="홈" TargetPageId="Home" Margin="4" Padding="16,8"/>
-            <controls:NavigateButton Content="Minsoo 화면" TargetPageId="Minsoo" Margin="4" Padding="16,8"/>
-        </StackPanel>
+        <!-- 하단 오버레이 네비게이션 바: 레이아웃 공간을 차지하지 않음 -->
+        <Border VerticalAlignment="Bottom"
+                HorizontalAlignment="Stretch"
+                Margin="12"
+                Padding="12"
+                Background="#AA111111"
+                CornerRadius="12">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <controls:NavigateButton Content="홈" TargetPageId="Home" Margin="4" Padding="16,8"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

@@ -6,15 +6,51 @@
       xmlns:local="clr-namespace:BarrierFree_Kiosk.MainViews"
       xmlns:controls="clr-namespace:BarrierFree_Kiosk.Controls"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomeView"
-      Background="#FFF3E0">
+      d:DesignHeight="1920" d:DesignWidth="1080" 
+      Title="HomeView">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="7*" />
+        </Grid.RowDefinitions>
+        <!--동영상입력필요-->
+        <MediaElement x:Name="MainVideo" 
+                      Grid.Row="0" 
+                      Source="\Resources\Images\NIKKE2nd_15s.mp4" 
+                      LoadedBehavior="Play" 
+                      UnloadedBehavior="Manual" 
+                      MediaEnded="MediaElement_MediaEnded" 
+                      Stretch="UniformToFill" />
+        <Grid Grid.Row="1">
+            <Image Source="\Resources\Images\ko_kr\main\site_main\51_main_bg.png" Stretch="Fill" />
 
-    <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Home" FontSize="48" FontWeight="Bold" Margin="0,0,0,24"
-                       HorizontalAlignment="Center"/>
-            <controls:NavigateButton Content="Minsoo 화면" TargetPageId="Minsoo" Margin="4" Padding="16,8"/>
-        </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7.5*" />
+                    <RowDefinition Height="1.5*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <controls:NavigateButton Grid.Row="1" 
+                                        x:Name="BtnPrint" 
+                                        TargetPageId="Menu"
+                                        Background="Transparent" 
+                                        BorderThickness="0" 
+                                        HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center"
+                                        Padding="40">
+                    <!--해상도 변경시 Padding을 15로 변경-->
+
+                    <!--다음페이지 넘어가기-->
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Image Source="\Resources\Images\ko_kr\main\site_main\btn_main.png" 
+                                   Stretch="Uniform" 
+                                   Margin="{TemplateBinding Padding}"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </controls:NavigateButton>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>
