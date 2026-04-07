@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BarrierFree_Kiosk.WorkSpace
+namespace BarrierFree_Kiosk.WorkSpace.Minsoo
 {
     /// <summary>
-    /// minsoo.xaml에 대한 상호 작용 논리
+    /// Window1.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MinsooPage : Page
+    public partial class Window1 : Window
     {
-        public MinsooPage()
+        public Window1()
         {
             InitializeComponent();
         }

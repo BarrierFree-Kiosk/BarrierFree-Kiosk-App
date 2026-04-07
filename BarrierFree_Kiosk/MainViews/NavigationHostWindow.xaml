@@ -1,0 +1,29 @@
+<Window x:Class="BarrierFree_Kiosk.MainViews.NavigationHostWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:BarrierFree_Kiosk.Controls"
+        xmlns:nav="clr-namespace:BarrierFree_Kiosk.Navigation"
+        Title="NavigationHost"
+        Height="1920" Width="1080">
+    <!--
+      참고용 최소 호스트: 상단은 이동 버튼, 하단 Frame에 Page가 표시됩니다.
+      실제 키오스크 레이아웃은 담당자 XAML로 교체하면 됩니다.
+      시작 창으로 쓰려면 App.xaml의 StartupUri를 MainViews/NavigationHostWindow.xaml 로 바꾸세요.
+    -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Frame x:Name="RootFrame"
+               Grid.Row="0"
+               Margin="8"
+               NavigationUIVisibility="Hidden"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="8">
+            <controls:NavigateButton Content="홈" TargetPageId="Home" Margin="4" Padding="16,8"/>
+            <controls:NavigateButton Content="Minsoo 화면" TargetPageId="Minsoo" Margin="4" Padding="16,8"/>
+        </StackPanel>
+    </Grid>
+</Window>

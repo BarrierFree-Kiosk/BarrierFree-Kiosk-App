@@ -4,11 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarrierFree_Kiosk.MainViews"
+      xmlns:controls="clr-namespace:BarrierFree_Kiosk.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="HomeView">
+      Title="HomeView"
+      Background="#FFF3E0">
 
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Home" FontSize="48" FontWeight="Bold" Margin="0,0,0,24"
+                       HorizontalAlignment="Center"/>
+            <controls:NavigateButton Content="Minsoo 화면" TargetPageId="Minsoo" Margin="4" Padding="16,8"/>
+        </StackPanel>
     </Grid>
 </Page>
