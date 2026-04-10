@@ -7,12 +7,14 @@
       mc:Ignorable="d" 
       d:DesignHeight="1920" d:DesignWidth="1080" 
       Title="Jungmin2">
+    <!--전체 비율-->
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*" />
             <RowDefinition Height="7*" />
         </Grid.RowDefinitions>
-        <!--동영상입력필요-->
+
+        <!--영상-->
         <MediaElement x:Name="MainVideo" 
                       Grid.Row="0" 
                       Source="\Resources\Images\NIKKE2nd_15s.mp4" 
@@ -20,9 +22,11 @@
                       UnloadedBehavior="Manual" 
                       MediaEnded="MediaElement_MediaEnded" 
                       Stretch="UniformToFill" />
+        <!--배경 이미지-->
         <Grid Grid.Row="1">
             <Image Source="\Resources\Images\ko_kr\main\site_main\51_main_bg.png" Stretch="Fill" />
 
+            <!--출력하기 버튼 영역-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7.5*" />
