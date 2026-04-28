@@ -50,18 +50,7 @@
                                     <RowDefinition Height="1.3*" />
                                     <RowDefinition Height="5.2*" />
                                 </Grid.RowDefinitions>
-                                <Grid Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="30" />
-                                    </Grid.RowDefinitions>
-                                    <Button x:Name="BtnCard_10" Grid.Row="0" Background="Transparent" BorderThickness="0" Margin="0" Click="BtnCardSelect_Click">
-                                        <Image Source="\Resources\Images\PhotoCard\10.bmp" Stretch="Uniform" MaxHeight="150"/>
-                                    </Button>
-                                    <Grid Grid.Row="1" HorizontalAlignment="Center">
-                                        <Image Source="\Resources\Images\ko_kr\main\imgCardType_01.png" Stretch="Uniform" Height="28" VerticalAlignment="Center"/>
-                                    </Grid>
-                                </Grid>
+                                <StackPanel x:Name="CardListHost" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             </Grid>
 
                             <Grid x:Name="Preview_Layer">
@@ -70,15 +59,27 @@
                                     <RowDefinition Height="0.95*" />
                                     <RowDefinition Height="1.17*" />
                                 </Grid.RowDefinitions>
-                                <Grid Grid.Row="1">
+                                <Grid Grid.Row="1" VerticalAlignment="Top" Margin="0,12,0,0">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="0.9*" />
                                         <ColumnDefinition Width="2.6*" />
                                         <ColumnDefinition Width="2.23*" />
                                         <ColumnDefinition Width="0*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="1" Source="\Resources\Images\PhotoCard\10.bmp" Stretch="Uniform" />
-                                    <Image Grid.Column="2" Source="\Resources\Images\PhotoCard\poster_10.bmp" Stretch="Uniform" />
+                                    <Image Grid.Column="1"
+                                           Source="\Resources\Images\PhotoCard\10.bmp"
+                                           Stretch="Uniform"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           Width="211"
+                                           Height="315" Margin="0,-17,0,0"/>
+                                    <Image Grid.Column="2"
+                                           Source="\Resources\Images\PhotoCard\poster_10.bmp"
+                                           Stretch="Uniform"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Top"
+                                           Width="211"
+                                           Height="315" Margin="25,-17,0,0"/>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -97,32 +98,8 @@
                                 <ColumnDefinition Width="9.7*" />
                             </Grid.ColumnDefinitions>
 
-                            <StackPanel Grid.Column="1" Orientation="Horizontal" 
-                                        HorizontalAlignment="Left" VerticalAlignment="Center">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="30"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="0">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="35"/>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="28"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
-                                            <Image Grid.Row="0" Source="\Resources\Images\ko_kr\main\imgCardType_01.png" Stretch="Uniform" HorizontalAlignment="Left" />
-                                            <Image Grid.Row="1" Source="\Resources\Images\PhotoCard\10.bmp" Stretch="Fill" />
-                                        </Grid>
-                                        <Button Grid.Column="1" VerticalAlignment="Bottom" Background="Transparent" BorderThickness="0">
-                                            <Image Source="\Resources\Images\ko_kr\main\btn_cart_del.png" Width="30" Height="30"/>
-                                        </Button>
-                                    </Grid>
-                                </Grid>
-                            </StackPanel>
+                            <StackPanel x:Name="CartItemsHost" Grid.Column="1" Orientation="Horizontal"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </Grid>
                     </Grid>
                 </Grid>
