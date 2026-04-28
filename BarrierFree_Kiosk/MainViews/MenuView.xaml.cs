@@ -1,4 +1,6 @@
+using System.Windows;
 using System.Windows.Controls;
+using BarrierFree_Kiosk.WorkSpace.Sua;
 
 namespace BarrierFree_Kiosk.MainViews
 {
@@ -25,6 +27,15 @@ namespace BarrierFree_Kiosk.MainViews
 
         private void BtnPayment_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            var hostWindow = Window.GetWindow(this);
+            var popup = new PaymentPopupWindow();
+
+            if (hostWindow is not null)
+            {
+                popup.Owner = hostWindow;
+            }
+
+            popup.ShowDialog();
         }
     }
 }
