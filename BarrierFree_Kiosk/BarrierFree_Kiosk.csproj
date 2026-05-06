@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Speech" Version="10.0.5" />
+    <PackageReference Include="unknown6656.WPFPixelShaderLibrary" Version="1.0.2" />
   </ItemGroup>
 
   <!-- Resources를 실행 폴더로 복사 (파일 경로 로드용) -->
