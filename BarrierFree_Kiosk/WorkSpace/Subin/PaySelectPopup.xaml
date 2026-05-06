@@ -1,0 +1,114 @@
+<UserControl x:Class="BarrierFree_Kiosk.WorkSpace.Subin.Usercontrol"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="900"
+             Height="400">
+
+    <Border Background="White"
+            CornerRadius="25"
+            BorderBrush="#DDDDDD"
+            BorderThickness="2"
+            Padding="24">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="0.48*"/>
+                <ColumnDefinition Width="0.27*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 아이템 이미지 -->
+            <Border Grid.Column="0"
+        CornerRadius="18"
+        ClipToBounds="True"
+        Background="#EEEEEE"
+        VerticalAlignment="Stretch">
+
+                <Image Source="/Resources/Images/LocalImg/front/10.jpg"
+           Stretch="UniformToFill"/>
+            </Border>
+            
+            <!-- 아이템 정보 -->
+            <Grid Grid.Column="1"
+                  Margin="28,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1"
+                           Text="랜덤 포토카드"
+                           FontSize="34"
+                           FontWeight="Bold"
+                           Foreground="#222222"/>
+
+                <TextBlock Grid.Row="2"
+                           Text="RANDOM 디자인"
+                           FontSize="24"
+                           Foreground="#666666"
+                           Margin="0,12,0,0"/>
+
+                <TextBlock Grid.Row="3"
+                           Text="55 x 85mm"
+                           FontSize="24"
+                           Foreground="#666666"
+                           Margin="0,6,0,0"/>
+
+                <TextBlock Grid.Row="4"
+                           Text="3,000원"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="#111111"
+                           VerticalAlignment="Bottom"/>
+            </Grid>
+
+            <!-- 수량 / 담기 영역 -->
+            <Grid Grid.Column="2"
+                  VerticalAlignment="Center">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+
+                    <Image Source="/Images/btn_cart_minus.png"
+                           Width="45"
+                           Height="45"
+                           Stretch="Fill"/>
+
+                    <Grid Width="70"
+                          Height="45"
+                          Margin="8,0">
+                        <Image Source="/Images/btn_cart_count.png"
+                               Stretch="Fill"/>
+                        <TextBlock Text="1"
+                                   FontSize="24"
+                                   FontWeight="Bold"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <Image Source="/Images/btn_cart_plus.png"
+                           Width="45"
+                           Height="45"
+                           Stretch="Fill"/>
+                </StackPanel>
+
+                <Image Grid.Row="2"
+                       Source="/Images/btn_cart.png"
+                       Width="250"
+                       Height="72"
+                       Stretch="Fill"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
