@@ -10,11 +10,15 @@
       실제 키오스크 레이아웃은 담당자 XAML로 교체하면 됩니다.
       시작 창으로 쓰려면 App.xaml의 StartupUri를 MainViews/NavigationHostWindow.xaml 로 바꾸세요.
     -->
-    <Grid>
+    <Grid x:Name="HostRoot">
         <!--
           Host에서만 비율 보정:
           내부 Page(1080x1920 기준)를 창 전체에 Uniform 스케일링합니다.
         -->
+        <Grid.LayoutTransform>
+            <ScaleTransform x:Name="GlobalScaleTransform" ScaleX="1.0" ScaleY="1.0"/>
+        </Grid.LayoutTransform>
+
         <Viewbox Stretch="Uniform" StretchDirection="Both">
             <Frame x:Name="RootFrame"
                    NavigationUIVisibility="Hidden"/>
@@ -28,7 +32,17 @@
                 Background="#AA111111"
                 CornerRadius="12">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="HighContrastButton"
+                        Content="고대비"
+                        Margin="4"
+                        Padding="16,8"
+                        Click="OnHighContrastClick"/>
                 <controls:NavigateButton Content="홈" TargetPageId="Home" Margin="4" Padding="16,8"/>
+                <Button x:Name="ZoomButton"
+                        Content="화면 확대"
+                        Margin="4"
+                        Padding="16,8"
+                        Click="OnZoomClick"/>
             </StackPanel>
         </Border>
     </Grid>
