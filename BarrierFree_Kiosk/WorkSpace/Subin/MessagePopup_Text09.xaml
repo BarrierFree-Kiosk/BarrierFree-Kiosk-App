@@ -1,0 +1,17 @@
+<Window x:Class="BarrierFree_Kiosk.WorkSpace.Subin.MessagePopup_Text09"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Width="690"
+        Height="660"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#1E282D">
+    <Grid Background="#1E282D">
+        <TextBlock Text="MessagePopup_Text09"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+    </Grid>
+</Window>
