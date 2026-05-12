@@ -6,25 +6,37 @@
         Title="NavigationHost"
         Height="1920" Width="1080">
     <!--
-      참고용 최소 호스트: 상단은 이동 버튼, 하단 Frame에 Page가 표시됩니다.
-      실제 키오스크 레이아웃은 담당자 XAML로 교체하면 됩니다.
+      참고용 최소 호스트: 하단 Frame에 Page가 표시됩니다.
       시작 창으로 쓰려면 App.xaml의 StartupUri를 MainViews/NavigationHostWindow.xaml 로 바꾸세요.
     -->
     <Grid x:Name="HostRoot">
         <!--
-          Host에서만 비율 보정:
-          내부 Page(1080x1920 기준)를 창 전체에 Uniform 스케일링합니다.
+          비율 보정: Page(1080x1920 기준)를 Uniform으로 맞춤.
+          화면 확대: 동일 비율로 스케일만 키우고, 뷰포트 밖은 마우스 드래그로 패닝.
         -->
-        <Grid.LayoutTransform>
-            <ScaleTransform x:Name="GlobalScaleTransform" ScaleX="1.0" ScaleY="1.0"/>
-        </Grid.LayoutTransform>
+        <Border x:Name="ZoomViewport"
+                ClipToBounds="True"
+                Background="Transparent"
+                PreviewMouseLeftButtonDown="OnZoomPanPreviewMouseLeftButtonDown"
+                PreviewMouseLeftButtonUp="OnZoomPanPreviewMouseLeftButtonUp"
+                PreviewMouseMove="OnZoomPanPreviewMouseMove"
+                MouseLeave="OnZoomPanMouseLeave">
+            <Grid x:Name="PanZoomContainer"
+                  RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="ContentZoomScale" ScaleX="1" ScaleY="1"/>
+                        <TranslateTransform x:Name="ContentPanTranslate"/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Viewbox Stretch="Uniform" StretchDirection="Both">
+                    <Frame x:Name="RootFrame"
+                           NavigationUIVisibility="Hidden"/>
+                </Viewbox>
+            </Grid>
+        </Border>
 
-        <Viewbox Stretch="Uniform" StretchDirection="Both">
-            <Frame x:Name="RootFrame"
-                   NavigationUIVisibility="Hidden"/>
-        </Viewbox>
-
-        <!-- 하단 오버레이 네비게이션 바: 레이아웃 공간을 차지하지 않음 -->
+        <!-- 하단 오버레이: 고대비 | 홈 | 화면 확대 -->
         <Border VerticalAlignment="Bottom"
                 HorizontalAlignment="Stretch"
                 Margin="12"
