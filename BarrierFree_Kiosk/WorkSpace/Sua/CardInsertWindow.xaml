@@ -1,6 +1,8 @@
 <Window x:Class="BarrierFree_Kiosk.WorkSpace.Sua.CardInsertWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
+        speech:SpeechAssist.WindowSpeechText="카드를 삽입해주세요."
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         WindowStyle="None"

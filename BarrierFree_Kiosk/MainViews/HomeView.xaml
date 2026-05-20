@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarrierFree_Kiosk.MainViews"
       xmlns:controls="clr-namespace:BarrierFree_Kiosk.Controls"
+      xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
       mc:Ignorable="d" 
       d:DesignHeight="1920" d:DesignWidth="1080" 
       Title="HomeView">
@@ -38,7 +39,8 @@
                                         BorderThickness="0" 
                                         HorizontalAlignment="Center" 
                                         VerticalAlignment="Center"
-                                        Padding="40">
+                                        Padding="40"
+                                        speech:SpeechAssist.HoverSpeechText="포토카드 시스템을 시작하세요.">
                     <!--해상도 변경시 Padding을 15로 변경-->
 
                     <!--다음페이지 넘어가기-->

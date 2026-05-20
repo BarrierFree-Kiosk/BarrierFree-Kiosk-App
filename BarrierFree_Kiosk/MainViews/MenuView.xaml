@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BarrierFree_Kiosk.MainViews"
+      xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
       mc:Ignorable="d" 
       d:DesignHeight="1920" d:DesignWidth="1080"
       Title="MenuView">
@@ -114,7 +115,8 @@
                     </Grid.RowDefinitions>
 
                     <!--담기/결제 버튼 및 금액 텍스트 블록-->
-                    <Button x:Name="BtnCart" Grid.Row="1" Click="BtnCart_Click" Background="Transparent" BorderThickness="0" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <Button x:Name="BtnCart" Grid.Row="1" Click="BtnCart_Click" Background="Transparent" BorderThickness="0" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                            speech:SpeechAssist.HoverSpeechText="선택된 카드를 장바구니에 담습니다.">
                         <Image Source="\Resources\Images\ko_kr\main\btn_cart.png" Stretch="Fill" />
                     </Button>
 
@@ -130,7 +132,8 @@
                                    TextAlignment="Center"/>
                     </Grid>
 
-                    <Button x:Name="BtnPayment" Grid.Row="3" Click="BtnPayment_Click" Background="Transparent" BorderThickness="0" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                    <Button x:Name="BtnPayment" Grid.Row="3" Click="BtnPayment_Click" Background="Transparent" BorderThickness="0" Margin="0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                            speech:SpeechAssist.HoverSpeechText="구매하기를 진행합니다.">
                         <Image Source="\Resources\Images\ko_kr\main\btn_payment.png" Stretch="Fill" />
                     </Button>
                 </Grid>

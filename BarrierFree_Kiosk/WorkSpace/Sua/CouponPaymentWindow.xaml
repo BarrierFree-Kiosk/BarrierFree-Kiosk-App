@@ -1,6 +1,7 @@
 <Window x:Class="BarrierFree_Kiosk.WorkSpace.Sua.CouponPaymentWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -120,7 +121,8 @@
                                     FontWeight="Bold"
                                     Background="#FF4C64DA"
                                     Style="{StaticResource ImageButtonStyle}"
-                                    Tag="\Resources\Images\coupon\btn_search.png" />
+                                    Tag="\Resources\Images\coupon\btn_search.png"
+                                    speech:SpeechAssist.HoverSpeechText="조회하기 버튼입니다." />
                         </Grid>
 
                         <UniformGrid Grid.Row="0"
@@ -129,18 +131,18 @@
                                      Rows="4"
                                      Columns="3"
                                      Margin="10,0,0,0">
-                            <Button Content="1" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_1.png"/>
-                            <Button Content="2" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_2.png"/>
-                            <Button Content="3" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_3.png"/>
-                            <Button Content="4" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_4.png"/>
-                            <Button Content="5" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_5.png"/>
-                            <Button Content="6" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_6.png"/>
-                            <Button Content="7" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_7.png"/>
-                            <Button Content="8" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_8.png"/>
-                            <Button Content="9" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_9.png"/>
-                            <Button Content="⌫" Click="BtnBackspace_Click" FontSize="20" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\btn_backspace.png"/>
-                            <Button Content="0" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_0.png"/>
-                            <Button Content="CLEAR" Click="BtnClear_Click" FontSize="14" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\btn_clear.png"/>
+                            <Button Content="1" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_1.png" speech:SpeechAssist.HoverSpeechText="1 버튼입니다."/>
+                            <Button Content="2" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_2.png" speech:SpeechAssist.HoverSpeechText="2 버튼입니다."/>
+                            <Button Content="3" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_3.png" speech:SpeechAssist.HoverSpeechText="3 버튼입니다."/>
+                            <Button Content="4" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_4.png" speech:SpeechAssist.HoverSpeechText="4 버튼입니다."/>
+                            <Button Content="5" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_5.png" speech:SpeechAssist.HoverSpeechText="5 버튼입니다."/>
+                            <Button Content="6" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_6.png" speech:SpeechAssist.HoverSpeechText="6 버튼입니다."/>
+                            <Button Content="7" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_7.png" speech:SpeechAssist.HoverSpeechText="7 버튼입니다."/>
+                            <Button Content="8" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_8.png" speech:SpeechAssist.HoverSpeechText="8 버튼입니다."/>
+                            <Button Content="9" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_9.png" speech:SpeechAssist.HoverSpeechText="9 버튼입니다."/>
+                            <Button Content="⌫" Click="BtnBackspace_Click" FontSize="20" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\btn_backspace.png" speech:SpeechAssist.HoverSpeechText="지우기 버튼입니다."/>
+                            <Button Content="0" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_0.png" speech:SpeechAssist.HoverSpeechText="0 버튼입니다."/>
+                            <Button Content="CLEAR" Click="BtnClear_Click" FontSize="14" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\btn_clear.png" speech:SpeechAssist.HoverSpeechText="초기화 버튼입니다."/>
                         </UniformGrid>
 
                         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,14,0,0">
@@ -178,7 +180,8 @@
                                 FontWeight="Bold"
                                 Background="#FF96A3B7"
                                 Style="{StaticResource ImageButtonStyle}"
-                                Tag="\Resources\Images\coupon\btn_no.png" />
+                                Tag="\Resources\Images\coupon\btn_no.png"
+                                speech:SpeechAssist.HoverSpeechText="쿠폰 사용 등록을 취소하겠습니까?" />
                         <Button x:Name="BtnYes"
                                 Click="BtnYes_Click"
                                 Content="예"
@@ -188,7 +191,8 @@
                                 FontWeight="Bold"
                                 Background="#FF4C64DA"
                                 Style="{StaticResource ImageButtonStyle}"
-                                Tag="\Resources\Images\coupon\btn_yes.png" />
+                                Tag="\Resources\Images\coupon\btn_yes.png"
+                                speech:SpeechAssist.HoverSpeechText="입력하신 쿠폰을 사용하시겠습니까?" />
                     </StackPanel>
                 </StackPanel>
             </Grid>

@@ -1,6 +1,8 @@
 <Window x:Class="BarrierFree_Kiosk.WorkSpace.Sua.MessagePopupWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
+        speech:SpeechAssist.WindowSpeechText="쿠폰 번호(8자리)를 다시 확인해주십시오."
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         WindowStyle="None"
@@ -79,7 +81,8 @@
                         Foreground="White"
                         Background="#FFAB295F"
                         BorderThickness="0"
-                        Cursor="Hand"/>
+                        Cursor="Hand"
+                        speech:SpeechAssist.HoverSpeechText="확인 버튼입니다."/>
             </Grid>
         </Border>
     </Grid>
