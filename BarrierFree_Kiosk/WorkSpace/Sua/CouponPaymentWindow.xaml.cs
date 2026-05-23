@@ -1,12 +1,15 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using BarrierFree_Kiosk.Accessibility;
 
 namespace BarrierFree_Kiosk.WorkSpace.Sua
 {
     public partial class CouponPaymentWindow : Window
     {
         private int _discountAmount;
+
+        public int DiscountAmount => _discountAmount;
 
         public CouponPaymentWindow()
         {
@@ -47,6 +50,7 @@ namespace BarrierFree_Kiosk.WorkSpace.Sua
             {
                 TxtCouponCode.Text += digit;
                 TxtCouponCode.CaretIndex = TxtCouponCode.Text.Length;
+                KioskSpeechService.Default.Speak(digit);
             }
         }
 
@@ -65,6 +69,7 @@ namespace BarrierFree_Kiosk.WorkSpace.Sua
             _discountAmount = 0;
             TxtDiscountAmount.Text = "총 할인 금액(₩) 0";
             TxtCouponStatus.Text = string.Empty;
+            KioskSpeechService.Default.Speak("초기화되었습니다.");
         }
 
         private void BtnSearchCoupon_Click(object sender, RoutedEventArgs e)
@@ -87,6 +92,7 @@ namespace BarrierFree_Kiosk.WorkSpace.Sua
             _discountAmount = TxtCouponCode.Text.Length >= 6 ? 2000 : 1000;
             TxtDiscountAmount.Text = $"총 할인 금액(₩) {_discountAmount:N0}";
             TxtCouponStatus.Text = "쿠폰 조회가 완료되었습니다.";
+            KioskSpeechService.Default.Speak($"총 할인 금액 {_discountAmount:N0}원 입니다.");
         }
 
         private void BtnNo_Click(object sender, RoutedEventArgs e)
@@ -103,6 +109,7 @@ namespace BarrierFree_Kiosk.WorkSpace.Sua
                 return;
             }
 
+            KioskSpeechService.Default.Speak("쿠폰이 적용되었습니다.");
             DialogResult = true;
             Close();
         }

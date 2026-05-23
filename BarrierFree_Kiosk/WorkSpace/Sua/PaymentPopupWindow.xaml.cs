@@ -5,6 +5,8 @@ namespace BarrierFree_Kiosk.WorkSpace.Sua
 {
     public partial class PaymentPopupWindow : Window
     {
+        public int AppliedCouponDiscount { get; private set; }
+
         public PaymentPopupWindow()
         {
             InitializeComponent();
@@ -56,10 +58,13 @@ namespace BarrierFree_Kiosk.WorkSpace.Sua
             {
                 Owner = Owner ?? this
             };
-            couponPaymentWindow.ShowDialog();
 
-            DialogResult = false;
-            Close();
+            if (couponPaymentWindow.ShowDialog() == true)
+            {
+                AppliedCouponDiscount = couponPaymentWindow.DiscountAmount;
+                DialogResult = true;
+                Close();
+            }
         }
 
         private void BtnClose_Click(object sender, RoutedEventArgs e)

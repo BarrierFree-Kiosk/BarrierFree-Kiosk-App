@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using BarrierFree_Kiosk.Accessibility;
 using BarrierFree_Kiosk.WorkSpace.Sua;
 
 namespace BarrierFree_Kiosk.MainViews
@@ -10,7 +11,8 @@ namespace BarrierFree_Kiosk.MainViews
         private const int DefaultCardPrice = 4000;
 
         private SelectableCardControl? _selectedCard;
-        private int _totalAmount;
+        private int _cartSubtotal;
+        private int _couponDiscount;
 
         public MenuView()
         {
@@ -71,22 +73,33 @@ namespace BarrierFree_Kiosk.MainViews
             cartItem.RemoveRequested += (_, _) =>
             {
                 CartItemsHost.Children.Remove(cartItem);
-                _totalAmount -= cartItem.CardPrice;
-                if (_totalAmount < 0)
+                _cartSubtotal -= cartItem.CardPrice;
+                if (_cartSubtotal < 0)
                 {
-                    _totalAmount = 0;
+                    _cartSubtotal = 0;
+                }
+
+                if (CartItemsHost.Children.Count == 0)
+                {
+                    _couponDiscount = 0;
                 }
 
                 UpdateTotalAmountText();
+                KioskSpeechService.Default.Speak("일반 카드가 장바구니에서 삭제되었습니다.");
             };
 
             CartItemsHost.Children.Add(cartItem);
-            _totalAmount += cartItem.CardPrice;
+            _cartSubtotal += cartItem.CardPrice;
             UpdateTotalAmountText();
+            KioskSpeechService.Default.Speak("일반 카드를 장바구니에 담았습니다.");
         }
 
         private void BtnPayment_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            var itemCount = CartItemsHost.Children.Count;
+            KioskSpeechService.Default.Speak(
+                $"일반카드 총 {itemCount}개, 총 {GetFinalAmount():N0}원 입니다. 카드 결제 또는 쿠폰 사용을 진행해주세요.");
+
             var hostWindow = Window.GetWindow(this);
             var popup = new PaymentPopupWindow();
 
@@ -95,7 +108,13 @@ namespace BarrierFree_Kiosk.MainViews
                 popup.Owner = hostWindow;
             }
 
-            popup.ShowDialog();
+            if (popup.ShowDialog() == true && popup.AppliedCouponDiscount > 0)
+            {
+                _couponDiscount = popup.AppliedCouponDiscount;
+                UpdateTotalAmountText();
+                KioskSpeechService.Default.Speak(
+                    $"쿠폰이 적용되어 총 {GetFinalAmount():N0}원 입니다.");
+            }
         }
 
         private static BitmapImage ToImage(string relativeOrAbsoluteUri)
@@ -103,9 +122,15 @@ namespace BarrierFree_Kiosk.MainViews
             return new BitmapImage(new System.Uri(relativeOrAbsoluteUri, System.UriKind.RelativeOrAbsolute));
         }
 
+        private int GetFinalAmount()
+        {
+            var finalAmount = _cartSubtotal - _couponDiscount;
+            return finalAmount < 0 ? 0 : finalAmount;
+        }
+
         private void UpdateTotalAmountText()
         {
-            TxtTotalAmount.Text = _totalAmount.ToString("N0");
+            TxtTotalAmount.Text = GetFinalAmount().ToString("N0");
         }
     }
 }

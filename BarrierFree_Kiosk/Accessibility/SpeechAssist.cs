@@ -187,19 +187,19 @@ namespace BarrierFree_Kiosk.Accessibility
                     return;
                 }
 
-                KioskSpeechService.Default.Speak(_text);
+                KioskSpeechService.Default.Speak(_text, KioskSpeechKind.Hover);
             }
 
             public void OnMouseLeave(object sender, MouseEventArgs e)
             {
                 _suppressHoverUntilLeave = false;
-                KioskSpeechService.Default.Stop();
+                KioskSpeechService.Default.StopHover();
             }
 
             public void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             {
                 _suppressHoverUntilLeave = true;
-                KioskSpeechService.Default.Stop();
+                KioskSpeechService.Default.StopHover();
             }
         }
     }

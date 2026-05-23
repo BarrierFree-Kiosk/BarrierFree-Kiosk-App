@@ -3,6 +3,15 @@ using System.Speech.Synthesis;
 
 namespace BarrierFree_Kiosk.Accessibility
 {
+    public enum KioskSpeechKind
+    {
+        /// <summary>마우스 호버 안내 — 커서가 벗어나면 중단 가능.</summary>
+        Hover,
+
+        /// <summary>클릭·동작 안내 — 커서 이동과 무관하게 끝까지 재생.</summary>
+        Action,
+    }
+
     /// <summary>
     /// 앱 전역 TTS(음성 안내) 서비스.
     /// </summary>
@@ -14,6 +23,7 @@ namespace BarrierFree_Kiosk.Accessibility
 
         private string? _lastSpokenText;
         private DateTime _lastSpokenAt = DateTime.MinValue;
+        private KioskSpeechKind _currentKind = KioskSpeechKind.Action;
 
         private KioskSpeechService()
         {
@@ -24,7 +34,7 @@ namespace BarrierFree_Kiosk.Accessibility
 
         public static KioskSpeechService Default => Instance.Value;
 
-        public void Speak(string? text)
+        public void Speak(string? text, KioskSpeechKind kind = KioskSpeechKind.Action)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
@@ -39,6 +49,7 @@ namespace BarrierFree_Kiosk.Accessibility
 
             _lastSpokenText = text;
             _lastSpokenAt = now;
+            _currentKind = kind;
 
             try
             {
@@ -51,7 +62,23 @@ namespace BarrierFree_Kiosk.Accessibility
             }
         }
 
+        /// <summary>호버 안내만 중단합니다. 클릭·동작 안내는 계속 재생됩니다.</summary>
+        public void StopHover()
+        {
+            if (_currentKind != KioskSpeechKind.Hover)
+            {
+                return;
+            }
+
+            StopInternal();
+        }
+
         public void Stop()
+        {
+            StopInternal();
+        }
+
+        private void StopInternal()
         {
             try
             {
