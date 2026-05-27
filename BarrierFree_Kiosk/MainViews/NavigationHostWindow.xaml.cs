@@ -19,7 +19,7 @@ namespace BarrierFree_Kiosk.MainViews
         private const double SubBgImageSourceHeight = 1312.0;
         private const double DesignPageWidth = 1080.0;
         private const double DesignPageHeight = 1920.0;
-        private const double PageBottomSectionRatio = 7.0 / 10.0;
+        private const double PageBottomSectionRatio = 8.0 / 10.0;
         private const double DockBandHeightScale = 1.2;
 
         private bool _isHighContrastEnabled;
