@@ -1,0 +1,201 @@
+<Window x:Class="BarrierFree_Kiosk.WorkSpace.Sua.CouponPaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        Title="쿠폰 결제">
+    <Window.Resources>
+        <Style x:Key="ImageButtonStyle" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="16,8" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="12">
+                            <Grid>
+                                <Image Source="{TemplateBinding Tag}" Stretch="Fill"/>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#66000000">
+        <Border Margin="20"
+                Width="672"
+                Height="516"
+                Padding="14"
+                Background="#FFE8EFF8"
+                BorderBrush="#FFCAD7E8"
+                BorderThickness="2"
+                CornerRadius="16"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="쿠폰 사용 등록"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#FF1F2B3A"
+                               VerticalAlignment="Center" />
+                    <Button Grid.Column="1"
+                            x:Name="BtnClose"
+                            Click="BtnClose_Click"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Foreground="#FF1F2B3A"
+                            Content="×"
+                            Padding="8,0"
+                            Cursor="Hand" />
+                </Grid>
+
+                <Border Grid.Row="1"
+                        Margin="0,8,0,10"
+                        Height="2"
+                        Background="#FFC7D3E4" />
+
+                <Border Grid.Row="2"
+                        Background="#FFD7E2F1"
+                        CornerRadius="16"
+                        Padding="14">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.3*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="TxtCouponCode"
+                                     Grid.Column="0"
+                                     MinHeight="40"
+                                     FontSize="20"
+                                     VerticalContentAlignment="Center"
+                                     Padding="12,0"
+                                     BorderBrush="#FFE05056"
+                                     BorderThickness="3"
+                                     Background="#FFF1F6FC" />
+                            <Button x:Name="BtnSearchCoupon"
+                                    Grid.Column="1"
+                                    Click="BtnSearchCoupon_Click"
+                                    Content="조회하기"
+                                    Margin="8,0,0,0"
+                                    MinWidth="100"
+                                    MinHeight="40"
+                                    Padding="20,0"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Background="#FF4C64DA"
+                                    Style="{StaticResource ImageButtonStyle}"
+                                    Tag="\Resources\Images\coupon\btn_search.png"
+                                    speech:SpeechAssist.HoverSpeechText="조회하기 버튼입니다." />
+                        </Grid>
+
+                        <UniformGrid Grid.Row="0"
+                                     Grid.RowSpan="2"
+                                     Grid.Column="1"
+                                     Rows="4"
+                                     Columns="3"
+                                     Margin="10,0,0,0">
+                            <Button Content="1" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_1.png" speech:SpeechAssist.HoverSpeechText="1 버튼입니다."/>
+                            <Button Content="2" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_2.png" speech:SpeechAssist.HoverSpeechText="2 버튼입니다."/>
+                            <Button Content="3" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_3.png" speech:SpeechAssist.HoverSpeechText="3 버튼입니다."/>
+                            <Button Content="4" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_4.png" speech:SpeechAssist.HoverSpeechText="4 버튼입니다."/>
+                            <Button Content="5" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_5.png" speech:SpeechAssist.HoverSpeechText="5 버튼입니다."/>
+                            <Button Content="6" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_6.png" speech:SpeechAssist.HoverSpeechText="6 버튼입니다."/>
+                            <Button Content="7" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_7.png" speech:SpeechAssist.HoverSpeechText="7 버튼입니다."/>
+                            <Button Content="8" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_8.png" speech:SpeechAssist.HoverSpeechText="8 버튼입니다."/>
+                            <Button Content="9" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_9.png" speech:SpeechAssist.HoverSpeechText="9 버튼입니다."/>
+                            <Button Content="⌫" Click="BtnBackspace_Click" FontSize="20" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\btn_backspace.png" speech:SpeechAssist.HoverSpeechText="지우기 버튼입니다."/>
+                            <Button Content="0" Click="NumpadButton_Click" FontSize="26" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\num_0.png" speech:SpeechAssist.HoverSpeechText="0 버튼입니다."/>
+                            <Button Content="CLEAR" Click="BtnClear_Click" FontSize="14" FontWeight="Bold" Margin="4" MinHeight="48" Background="#FFC3D2E6" Style="{StaticResource ImageButtonStyle}" Tag="\Resources\Images\coupon\btn_clear.png" speech:SpeechAssist.HoverSpeechText="초기화 버튼입니다."/>
+                        </UniformGrid>
+
+                        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="0,14,0,0">
+                            <TextBlock x:Name="TxtDiscountAmount"
+                                       Text="총 할인 금액(₩) 0"
+                                       FontSize="28"
+                                       FontWeight="Bold"
+                                       Foreground="#FF1F2B3A" />
+                            <TextBlock x:Name="TxtCouponStatus"
+                                       Text=""
+                                       FontSize="16"
+                                       Margin="0,8,0,0"
+                                       Foreground="#FF40566F" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <StackPanel Grid.Row="3"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="입력하신 쿠폰을 사용하시겠습니까?"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#FF1F2B3A"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,10" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="BtnNo"
+                                Click="BtnNo_Click"
+                                Content="아니오"
+                                MinWidth="150"
+                                MinHeight="52"
+                                Margin="0,0,12,0"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Background="#FF96A3B7"
+                                Style="{StaticResource ImageButtonStyle}"
+                                Tag="\Resources\Images\coupon\btn_no.png"
+                                speech:SpeechAssist.HoverSpeechText="쿠폰 사용 등록을 취소하겠습니까?" />
+                        <Button x:Name="BtnYes"
+                                Click="BtnYes_Click"
+                                Content="예"
+                                MinWidth="150"
+                                MinHeight="52"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Background="#FF4C64DA"
+                                Style="{StaticResource ImageButtonStyle}"
+                                Tag="\Resources\Images\coupon\btn_yes.png"
+                                speech:SpeechAssist.HoverSpeechText="입력하신 쿠폰을 사용하시겠습니까?" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

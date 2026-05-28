@@ -1,0 +1,114 @@
+<Window x:Class="BarrierFree_Kiosk.WorkSpace.Sua.PaymentPopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:speech="clr-namespace:BarrierFree_Kiosk.Accessibility"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False"
+        Title="결제 수단 선택">
+    <Window.Resources>
+        <Style x:Key="PaymentOptionButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FFDFE9F4" />
+            <Setter Property="BorderBrush" Value="#FFBCC9D8" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Foreground" Value="#FF2C3D50" />
+            <Setter Property="FontSize" Value="28" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="18">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#66000000">
+        <Border Margin="28"
+                Width="560"
+                Height="430"
+                Background="#FFDCE7F3"
+                CornerRadius="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Height="68" Background="#FF3E53E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="결제 선택"
+                               FontSize="34"
+                               FontWeight="Bold"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Margin="28,0,0,0" />
+                    <Button Grid.Column="1"
+                            x:Name="BtnClose"
+                            Click="BtnClose_Click"
+                            Content="✕"
+                            FontSize="34"
+                            FontWeight="Light"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Margin="0,0,18,0"
+                            Padding="10,0"
+                            Cursor="Hand"
+                            VerticalAlignment="Center" />
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="24,20,24,24">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="결제방식을 선택 해 주세요."
+                               FontSize="32"
+                               FontWeight="Bold"
+                               Foreground="#FF2C3D50"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,30" />
+
+                    <UniformGrid Grid.Row="1"
+                                 Rows="1"
+                                 Columns="2"
+                                 HorizontalAlignment="Stretch">
+                    <Button x:Name="BtnCardPayment"
+                            Click="BtnCardPayment_Click"
+                            Style="{StaticResource PaymentOptionButtonStyle}"
+                            Margin="0,0,12,0"
+                            MinHeight="140"
+                            Content="카드 결제"
+                            speech:SpeechAssist.HoverSpeechText="카드 결제를 진행합니다." />
+
+                    <Button x:Name="BtnCouponPayment"
+                            Click="BtnCouponPayment_Click"
+                            Style="{StaticResource PaymentOptionButtonStyle}"
+                            Margin="12,0,0,0"
+                            MinHeight="140"
+                            Content="쿠폰사용"
+                            speech:SpeechAssist.HoverSpeechText="쿠폰 사용을 진행합니다." />
+                    </UniformGrid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
